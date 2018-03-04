@@ -1,0 +1,1646 @@
+1
+00:00:00,298 --> 00:00:09,167
+Hello everyone，we start to learn the Data Structures and Algorithms courses.
+
+2
+00:00:09,167 --> 00:00:18,804
+In this section,we firstly introduce a very important concept in Data Structures and Algorithms, that is problem solving.
+
+3
+00:00:18,804 --> 00:00:24,080
+Data Structures and Algorithms mainly focus on problem solving.
+
+4
+00:00:24,080 --> 00:00:29,987
+Firstly, what is the purpose of writing computer programs?
+
+5
+00:00:29,987 --> 00:00:39,929
+Our goal is to solve some problems that occurs in daily life or school life.
+
+6
+00:00:39,929 --> 00:00:43,263
+How to express this problem ?
+
+7
+00:00:43,263 --> 00:00:54,796
+Generally speaking, we'll give you some data input,then results can be got after the processing of your program.
+
+8
+00:00:54,796 --> 00:01:01,285
+How to describe the problem?
+
+9
+00:01:01,285 --> 00:01:12,807
+We need a data structure to describe the relationship between data of this problem.
+
+10
+00:01:12,807 --> 00:01:31,911
+After getting the data struture,which is also mathematical model, we can use corresponding algorithms to process the data appropriately and finally get an answer.
+
+11
+00:01:31,911 --> 00:01:40,342
+That is the process of transforming from question to data then to algorithm.
+
+12
+00:01:40,342 --> 00:01:51,253
+The programming is implemented by the interaction between data structure and algorithms.
+
+13
+00:01:51,253 --> 00:01:58,531
+In other words, algorithms can be included in the definition of data.
+
+14
+00:01:58,531 --> 00:02:11,813
+For example, in the description of  Object-Oriented programming ,methods of how to process data can be implemented by using member function in object.
+
+15
+00:02:11,813 --> 00:02:17,660
+Our data structure can not be separated from data structure as well.
+
+17
+00:02:17,660 --> 00:02:24,554
+Data structure consists of logic、storage and operation.
+
+18
+00:02:24,554 --> 00:02:29,597
+In fact, the operation can be seen as the algorithms.
+
+19
+00:02:29,597 --> 00:02:39,176
+We look at an example and use it to understand the whole process of problem solving.
+
+20
+00:02:39,176 --> 00:02:45,317
+The farmer accross the river problem is described as below:
+
+21
+00:02:45,317 --> 00:02:57,234
+At first, one bank of the river is empty while there are three things on the other side of the bank, that is a wolf,a sheep and some vegetables.
+
+22
+00:02:57,234 --> 00:03:09,509
+The farmer rows a boat, and the boat can load one thing at one point, the farmer is not included of course.
+
+23
+00:03:09,509 --> 00:03:18,310
+The farmer takes one thing to across the river and then returns.
+
+24
+00:03:18,310 --> 00:03:23,033
+He can take one thing back or returns with an empty boat.
+
+25
+00:03:23,033 --> 00:03:31,026
+The farmer constraints these three things.
+
+26
+00:03:31,026 --> 00:03:46,384
+It means that, these things remains safe altogether while the farmer is beside. But when the farmer is not beside, wolf can not stay with the sheep and the sheep can not stay with the vegetables.  
+
+27
+00:03:46,384 --> 00:04:06,170
+We need to describe all the constraints of the problem to describe it.
+
+31
+00:04:06,170 --> 00:04:09,291
+Then how to describe the data  structure?
+
+32
+00:04:09,291 --> 00:04:15,940
+We can stand in the view of the original bank to think about this problem.
+
+33
+00:04:15,940 --> 00:04:27,403
+It means the status of the original bank will be changed from farmer,sheep,wolf,vegetables to empty.
+
+34
+00:04:27,403 --> 00:04:33,072
+That is to say, all the things are transfered successfully to the opposite side of the original bank include  the farmer.
+
+35
+00:04:33,072 --> 00:04:45,797
+In the process of transfering, the statuses of the two banks will be changed, then which statuses are reasonable?
+
+36
+00:04:45,797 --> 00:04:55,352
+There is a constraint that wolf and sheep can not stay alone, as well as sheep and vegetables.
+
+37
+00:04:55,352 --> 00:05:01,889
+The complementary set of it is that the farmer can not stay alone with the vegetables, as well as the farmer and the wolf.
+
+38
+00:05:01,889 --> 00:05:05,796
+On the other hand, sheep,wolf and vegetables can not stay together without the farmer beside.
+
+39
+00:05:05,796 --> 00:05:11,888
+Six unreasonable status can be got then.
+
+40
+00:05:11,888 --> 00:05:19,809
+Besides, there are initial-state and end-state, the other statuses are reasonable.
+
+41
+00:05:19,809 --> 00:05:29,016
+Ten statuses are finally got at last. And how are these ten statuses associate with each other?
+
+42
+00:05:29,016 --> 00:05:38,614
+The statuses are associated by the transferring of the farmer or the famerr rows the empty boat to come and return.
+
+43
+00:05:38,614 --> 00:05:48,902
+So every time the farmer across the river reasonably, these statuses are associated.
+
+44
+00:05:48,902 --> 00:05:58,053
+For example, for the original status,if the farmer transfer the sheep to the opposite side of the bank, then wolf and vegetables are left.
+
+45
+00:05:58,053 --> 00:06:11,461
+Then the farmer rows the empty boat back, the status of the original bank is changed to farmer,wolf and vegetables, that is reasonable too.
+
+46
+00:06:11,461 --> 00:06:21,567
+All the reasonable transferring can be seen as the connection of the corresponding nodes.
+
+47
+00:06:21,567 --> 00:06:28,509
+We connect the lines with deep colour, and get the answer of this problem.
+
+48
+00:06:28,509 --> 00:06:35,456
+It means the farmer,sheep,wolf and vegetables is the initial-state.
+
+49
+00:06:35,456 --> 00:06:39,155
+Then the farmer takes the sheep to the opposite side of the bank, with the wolf and vegetables left.
+
+50
+00:06:39,155 --> 00:06:46,614
+Then the farmer rows the empty boat back, and the status of the original bank is changed to farmer,wolf and vegetables.
+
+51
+00:06:46,614 --> 00:06:59,788
+Then the farmer takes the wolf with him, and takes the sheep back, then the status of the original bank is changed to farmer,shhep and vegetables.
+
+52
+00:06:59,788 --> 00:07:07,758
+Then the vegetables are taken to the opposite side of the bank, then the status of the opposite bank is changed to farmer,wolf and vegetables.
+
+53
+00:07:07,758 --> 00:07:17,249
+The farmer then comes back and transfer the sheep and finally finish the work of transferring.
+
+54
+00:07:17,249 --> 00:07:26,273
+Our data structure can be described by an adjacent matrix.
+
+55
+00:07:26,273 --> 00:07:41,308
+All the reasonable nodes can be seen as position of one column or one row of the matrix.
+
+56
+00:07:41,308 --> 00:07:52,037
+The position between one row and one column means that a correlation happens between two statuses.
+
+57
+00:07:52,037 --> 00:08:00,286
+For example,accoring to the sequential number we arranged here, it is the first node.
+
+58
+00:08:00,286 --> 00:08:09,459
+Farmer,wolf,sheep and vegetables is the first node, while wolf and vegetables is the sixth node, there is an edge between them.
+
+59
+00:08:09,459 --> 00:08:17,118
+Accordingly, there is a value one in the sixth row of the first column.
+
+60
+00:08:17,118 --> 00:08:20,907
+If there is no association, the value will be zero.
+
+61
+00:08:20,907 --> 00:08:24,443
+In that way, we build a data structure.
+
+62
+00:08:24,443 --> 00:08:29,210
+The data structure can be expressed very well in the memory of our computer.
+
+63
+00:08:29,210 --> 00:08:36,113
+Then we'll try to find solutions for the data structure.
+
+64
+00:08:36,113 --> 00:08:50,058
+The process is to find an accessible path of the graph structure from the initial-state to the end-state.
+
+65
+00:08:50,058 --> 00:08:55,885
+In the data structures of computer, we mostly concerns about finding the best solution, that is to find the shortest path.
+
+66
+00:08:55,885 --> 00:09:05,530
+In the section of graph, we'll introduce the algorithm of Dijkstra to figure it out, so it will not be introduced here.
+
+67
+00:09:05,530 --> 00:09:26,016
+We introduce this example mainly to show you when a problem comes about, how to analyse the problem and construct a reasonable data structure to describe the association between data of the problem.
+
+68
+00:09:26,016 --> 00:09:39,881
+Then we find a classical algorithm or we redesign an appropriate algorithm to solve the problem and programming implementation is the final part of the process.
+
+69
+00:09:39,881 --> 00:09:57,424
+Your can think about what are the process of the Problem Abstration,Data Abstraction and Algorithm Abstraction?
+
+70
+00:09:57,424 --> 00:10:10,715
+Besides, if you analyse one problem in different ways, you may get different data structures.
+
+71
+00:10:10,715 --> 00:10:15,637
+Different algorithms will be needed accordingly.
+
+72
+00:10:15,637 --> 00:10:18,557
+You can also think about if there are some other solution for the farmer across the river problem.
+
+73
+00:10:18,557 --> 00:10:19,270
+Thank you!
+
+
+
+1
+00:00:00,000 --> 00:00:05,471
+Hello,everyone.
+
+2
+00:00:05,471 --> 00:00:10,766
+We will continue with the first section of the Data Structure and Algorithm.
+
+3
+00:00:10,766 --> 00:00:18,707
+In this lecture, we mainly introduce definitions of data structure especially the concept of abstract data type.
+
+4
+00:00:18,707 --> 00:00:23,801
+Firstly, what is a structure?
+
+5
+00:00:23,801 --> 00:00:32,630
+A structure mainly contains entities and relations between them. 
+
+6
+00:00:32,630 --> 00:00:38,503
+Combine them as a whole and an organic structure is built.
+
+7
+00:00:38,503 --> 00:00:46,291
+There are three basic aspects in data structure.
+
+8
+00:00:46,291 --> 00:00:54,208
+The first one is the logical relationship, which means the mathematical logical relationship between entities.
+
+9
+00:00:54,208 --> 00:01:00,154
+On the logical relationship, there may be some good properties.
+
+10
+00:01:00,154 --> 00:01:06,878
+The properties help us to store and computer efficiently.
+
+11
+00:01:06,878 --> 00:01:21,501
+In conputer, we must store data in the main memory to express it reasonably. Data can be exchanged with cpu only in that way.
+
+12
+00:01:21,501 --> 00:01:27,145
+So we must organize the storage of data.
+
+13
+00:01:27,145 --> 00:01:41,709
+Besides, to solve problems, we mainly focus on using some arithmetic operations to get output for corresponding data.
+
+14
+00:01:41,709 --> 00:01:47,383
+In this way, operation or algorithm is a very important part of data structure.
+
+16
+00:01:47,383 --> 00:01:55,610
+They supplement each other and are indispensable to the others.
+
+17
+00:01:55,610 --> 00:02:03,404
+In different scenarios, we focus on different ones, but none of them is indispensable.
+
+18
+00:02:03,404 --> 00:02:12,081
+The logical structure of data structure can be mainly divided into linear and non-linear structures.
+
+19
+00:02:12,081 --> 00:02:20,574
+Linear structure is represented by linear table such as array and linked list.
+
+20
+00:02:20,574 --> 00:02:27,888
+There are some special data structures in linear table such as stack¡¢queue and string.
+
+21
+00:02:27,888 --> 00:02:30,567
+They will be introduced in the sections later on.
+
+22
+00:02:30,567 --> 00:02:34,282
+Non-linear structure can be divided into two categories mainly.
+
+23
+00:02:34,282 --> 00:02:35,846
+The first one is the tree structure.
+
+24
+00:02:35,846 --> 00:02:40,380
+The tree structure is a hierarchical organizational form.
+
+25
+00:02:40,380 --> 00:02:44,748
+And the graph structure is the structure with the least attributes.
+
+26
+00:02:44,748 --> 00:02:50,181
+The structure is made up of by the edges between nodes only.
+
+27
+00:02:50,181 --> 00:03:00,379
+In several structures, the structure with the most attributes is linear table. However, in fact, it is the simplest data structure.
+
+28
+00:03:00,379 --> 00:03:06,688
+There are some inclusion relation between these structures.
+
+29
+00:03:06,688 --> 00:03:16,635
+The whole book of data structure can be seen as organized by the logical structure of data structure. 
+
+30
+00:03:16,635 --> 00:03:21,810
+We discuss about the logical properties of each structure first.
+
+31
+00:03:21,810 --> 00:03:29,987
+Then we discuss about some operations related with it. In other words, what kind of operations does it support?
+
+32
+00:03:29,987 --> 00:03:36,806
+To implement them, we must store the data We may have to store reasonably in the computer.
+
+40
+00:03:36,806 --> 00:03:46,501
+The storage structure of the data is a mapping from logic to its physical storage unit.
+
+41
+00:03:46,501 --> 00:03:55,954
+Physical storage unit must be stored in the memory, only in that way can we operate on the data structure.
+
+42
+00:03:55,954 --> 00:04:01,904
+Data must stay in the memory to communicate directly with the CPU.
+
+43
+00:04:01,904 --> 00:04:10,499
+The memory can seen as a linear structure which is encoded from low address to high address.
+
+44
+00:04:10,499 --> 00:04:23,297
+We can access units of memory directly without the process of search or traversal in the whole memory.
+
+45
+00:04:23,297 --> 00:04:29,691
+It mainly happens because we access any address in the memory with the same time.
+
+46
+00:04:29,691 --> 00:04:34,527
+Let's look at an example of storage structure.
+
+47
+00:04:34,527 --> 00:04:42,613
+For a linear table like this, it is an array with three elements.
+
+48
+00:04:42,613 --> 00:04:57,726
+After we get the starting address of the first element, we can calculate the starting address of the other elements directly.
+
+49
+00:04:57,726 --> 00:05:01,462
+The starting address of A[0] is 4 
+
+50
+00:05:01,462 --> 00:05:06,268
+An integer elements take up 4 bytes.
+
+51
+00:05:06,268 --> 00:05:12,356
+So we know the starting address of the second and the third element is 8 and 12.
+
+52
+00:05:12,356 --> 00:05:16,845
+That is the process of mapping.
+
+53
+00:05:16,845 --> 00:05:30,572
+For every node we define in the data structure, the memory space we apply for must be continuous area.
+
+54
+00:05:30,572 --> 00:05:42,159
+If a pointer has been pointed into another extended content, it can be used to develop new space.
+
+55
+00:05:42,159 --> 00:05:52,287
+Storage structure of data structures can be divided into four categories such as sequence, links, index and hash.
+
+56
+00:05:52,287 --> 00:05:58,324
+Sequence structure corresponds to the form of array.
+
+57
+00:05:58,324 --> 00:06:09,178
+The continuous storage of the stucture can express the logically related order of it.
+
+58
+00:06:09,178 --> 00:06:20,948
+If the logically structure of your structure is not sequential, you can storage it in order after a sequential operation.
+
+59
+00:06:20,948 --> 00:06:27,588
+Link structure correspond to the form of linked list.
+
+60
+00:06:27,588 --> 00:06:37,651
+Link structure is very important in data structure especially for non-linear structure such as binary tree, tree and graph.
+
+61
+00:06:37,651 --> 00:06:44,247
+In most cases, it is very natural and convenient to compute by using link structure to express.
+
+62
+00:06:44,247 --> 00:06:52,236
+Index and hash are contents which are emphasised in data structure.
+
+63
+00:06:52,236 --> 00:07:05,628
+Index is to build a index table for the data, can we can find the corresponding storage address of the data efficiently by using the index table.
+
+64
+00:07:05,628 --> 00:07:12,850
+Hash is a special kind of index structure, it is also a kind of storage structure.
+
+65
+00:07:12,850 --> 00:07:32,158
+Hash is able to find the storage space of the key you are searching in the hash table quickly and then fetch the value of the key by map the key to the hash table.
+
+66
+00:07:32,158 --> 00:07:40,117
+There is a very important concept in data structure, that is abstract data type.
+
+67
+00:07:40,117 --> 00:07:47,163
+We look back at the three aspect of the data structure, that is logical structure¡¢ storage structure and computing.
+
+68
+00:07:47,163 --> 00:07:57,862
+The storage structure is proposed to implement and express in the computer.
+
+69
+00:07:57,862 --> 00:08:10,190
+For the user of the data structure, we mainly focus on the logical structure of it. In other ways, we focus on the logical property of it and what kind of operations it supports.
+
+70
+00:08:10,190 --> 00:08:16,106
+It doesn't matter how you store in the memory.
+
+71
+00:08:16,106 --> 00:08:22,652
+So we can define a series of abstract data type.
+
+72
+00:08:22,652 --> 00:08:30,317
+We only need to describe the logical structure and the operations it supports clearly.
+
+73
+00:08:30,317 --> 00:08:40,618
+Abstract data type develops with  development of modularity and object-oriented methods.
+
+74
+00:08:40,618 --> 00:08:50,201
+With the support of abstract data type, our software can be built on the basis of data structure we have implemented before.
+
+75
+00:08:50,201 --> 00:09:01,914
+We can build more complex application system without concern of the implementation of the bottom layer.
+
+76
+00:09:01,914 --> 00:09:14,140
+When it is referenced by upper layer, we don't need to rewrite call form of the function, we only need to modify the reference of the header file.
+
+77
+00:09:14,140 --> 00:09:22,613
+Abstract data type mainly concerns about logic and operation these two aspects.
+
+78
+00:09:22,613 --> 00:09:36,192
+Logic is expressed in the data object, object contains the data and the relationship between data which can be understood as the relationship between entities.
+
+79
+00:09:36,192 --> 00:09:41,198
+Its manipulation embodies in data operations.
+
+80
+00:09:41,198 --> 00:09:48,419
+This function embodies as function in object-oriented language such as C++.
+
+81
+00:09:48,419 --> 00:10:00,118
+So we can describe logical structure first and then describe the definition of function, in that way we can describe the abstract data type well.
+
+82
+00:10:00,118 --> 00:10:02,216
+Let's have a look at a example.
+
+83
+00:10:02,216 --> 00:10:19,910
+For an abstract data type like stack, it is a linear structure firstly, it means its data is organized in order, from the first element to the last element.
+
+84
+00:10:19,910 --> 00:10:26,169
+One other property of the stack is that the operation of the data structure is constrained.
+
+85
+00:10:26,169 --> 00:10:37,186
+When we construct the data structure and operate on it , we are only allowed to operate on only one side of the structure.
+
+86
+00:10:37,186 --> 00:10:45,432
+It means data that comes to the stack in the end must be get out of the stack first.
+
+87
+00:10:45,432 --> 00:10:53,871
+Data that in the middle of the stack and data that comes to the stack first could't be access directly. 
+
+88
+00:10:53,871 --> 00:10:58,270
+We must get or read element at the top of the stack.
+
+89
+00:10:58,270 --> 00:11:13,443
+The main operation of stack is read(pop out of the stack) and write(push in the stack).
+
+90
+00:11:13,443 --> 00:11:22,309
+After definiting the logical structure, we define the operation interface of it correspondingly.
+
+91
+00:11:22,309 --> 00:11:27,722
+We use the abstract class of C++ to describe it.
+
+92
+00:11:27,722 --> 00:11:34,504
+Firstly, the type of the element  of the stack is class T.
+
+93
+00:11:34,504 --> 00:11:44,427
+We can assign the type of the element in the stack when we call it later on.
+
+94
+00:11:44,427 --> 00:11:47,926
+It can be integer, float or other complex types.
+
+95
+00:11:47,926 --> 00:12:00,638
+The operation of stack mainly contains push and pop and some auxiliary operations.
+
+96
+00:12:00,638 --> 00:12:11,593
+We can describe the main operation of the abstract data type of stack by using the definition of the C++ class.
+
+97
+00:12:11,593 --> 00:12:23,812
+It can be seen that our logical structure is implemented by using the description of an auxiliary language, we can't give it a formal representation  in the definition of the class.
+
+98
+00:12:23,812 --> 00:12:38,386
+Let's think about how is the logical structure which is an important concept expressed in the abstract data type of data structure.
+
+99
+00:12:38,386 --> 00:12:41,259
+The example we show before has introduced it.
+
+100
+00:12:41,259 --> 00:12:47,017
+Whether is the abstract type the definition of class?
+
+101
+00:12:47,017 --> 00:12:59,043
+Can we express the abstract data type without using template to describe the ADT?
+
+102
+00:12:59,043 --> 00:13:00,255
+Thank you!
+
+1
+00:00:04,966 --> 00:00:05,860
+Hello,everyone.
+
+2
+00:00:05,934 --> 00:00:10,632
+We will continue with the first section of the Data Structure and Algorithm.
+
+3
+00:00:10,712 --> 00:00:16,275
+We mainly introduce characteristics and simple classification of algorithm 
+
+4
+00:00:17,333 --> 00:00:22,563
+Algorithm plays a very important role in the problem solving of computer 
+
+5
+00:00:23,311 --> 00:00:28,589
+Problem of our computer is a function actually
+
+6
+00:00:28,669 --> 00:00:34,427
+It maps the input data to the corresponding output
+
+7
+00:00:34,500 --> 00:00:37,028
+The process of mapping is algorithm.
+
+8
+00:00:37,642 --> 00:00:43,728
+Algorithm is composed of some specific effective sequence
+
+9
+00:00:44,200 --> 00:00:56,563
+And in the environment of the computer, we must realize it as a specific program which is written in a computer programming language
+
+10
+00:00:56,660 --> 00:01:10,350
+Then in a specific operating system environment, we must use specific compiler to translate it into a binary code that the machine can understand and execute to get the problem solved finally.
+
+11
+00:01:13,128 --> 00:01:16,959
+Algorithm has some related features
+
+12
+00:01:17,031 --> 00:01:26,640
+First, it needs to have universality, that is to say we write algorithm, in order to use it to solve the same problem again and again
+
+13
+00:01:26,715 --> 00:01:48,808
+For example, for an eight queen  problem, we place eight queens on the chess board of 8*8. And the queens on the same line or in the same column or diagonal can't attack each other, so there can't be two queens on the same line or in the same column or diagonal
+
+14
+00:01:49,567 --> 00:01:59,794
+The eight queen problem can also be seen as four queen problem or n queen problem. Their solutions are similiar to each other.
+
+15
+00:01:59,891 --> 00:02:06,587
+For the n queen problem, we just conduct a parameterized process for the problem.
+
+16
+00:02:08,262 --> 00:02:15,584
+If we has written effective algorithm, problem of the same type can be solved correctly.
+
+17
+00:02:16,642 --> 00:02:20,933
+Another feature of algorithm is effectiveness.
+
+18
+00:02:21,029 --> 00:02:25,297
+The aim of writing algorithm is to solve the problem.
+
+19
+00:02:25,370 --> 00:02:28,336
+Problem solving is meaningful.
+
+20
+00:02:28,432 --> 00:02:39,938
+We write limited orderly sequence, and then  solve the problem through an efficient algorithm.
+
+21
+00:02:41,100 --> 00:02:44,047
+Our results should be effective
+
+22
+00:02:44,135 --> 00:02:46,701
+Our process should be effective
+
+23
+00:02:48,492 --> 00:02:50,414
+Another feature of algorithm is deterministic
+
+24
+00:02:50,498 --> 00:03:00,063
+It means that every step of our algotithm is definite in the process of writing algorithm
+
+25
+00:03:00,152 --> 00:03:05,890
+When the program executes to somewhere, we'll have a data environment
+
+26
+00:03:07,505 --> 00:03:17,407
+What should be done in the next step can be known through the data input right now
+
+27
+00:03:18,062 --> 00:03:33,702
+For example, for a judgement such as if else.
+
+28
+00:03:23,081 --> 00:03:25,865
+If I have known the data input, it can be known which code segment the program will executes. The code segment will not be random assigned
+
+29
+00:03:33,782 --> 00:03:49,657
+It is obvious that in some situations such as artificial intelligence, you seem to be not sure and some random algorithm randoms select which code segment to execute.
+
+30
+00:03:49,745 --> 00:03:56,271
+But after we has written the code, we'll have decision according to the data.
+
+31
+00:03:56,351 --> 00:03:57,738
+It is not randomized.
+
+32
+00:03:57,810 --> 00:04:00,869
+It is very specific from the under layer.
+
+33
+00:04:01,546 --> 00:04:03,783
+Algorithm has the feature of finiteness.
+
+34
+00:04:04,451 --> 00:04:11,840
+It means that algorithm should be completed in a certain time with certain steps 
+
+35
+00:04:12,990 --> 00:04:19,557
+We will never write an algorithm that loops all the time and the result can never be got
+
+36
+00:04:19,645 --> 00:04:29,232
+However the operating system we used commonly is an endless loop program.
+
+37
+00:04:29,640 --> 00:04:40,607
+It waits for instructions from the external environment such as the events of keyboard and mouse, and operates correspondingly.
+
+38
+00:04:42,803 --> 00:04:49,768
+The operating system should not be seen as an algorithm in the sense of algorithm because it is a endless loop program.
+
+39
+00:04:50,685 --> 00:04:54,898
+Let's look at an example of the queen problem.
+
+40
+00:04:56,919 --> 00:05:14,183
+For a situation of a four queen problem like this, we suppose the solution is a tetrad since we should not place two queens in the same line.
+
+41
+00:05:14,247 --> 00:05:20,870
+It represents the column value of the queen in each line.
+
+42
+00:05:20,949 --> 00:05:27,669
+Since there can't be two queens in the same column, it is an arrangement in fact.
+
+43
+00:05:28,817 --> 00:05:34,240
+For all the arrangement situations of the four queen problem, we enumerate them.
+
+44
+00:05:34,312 --> 00:05:36,212
+And we get a quadtree like this.
+
+45
+00:05:38,798 --> 00:05:48,756
+The quadtree is divided into four branches according to the value of the queen in the first line is placed as 1 or 2 3 4.
+
+46
+00:05:49,180 --> 00:05:54,592
+After it, we can see which column can the queen be placed in the second line.
+
+47
+00:05:54,682 --> 00:05:59,259
+And we can finally get a search space of quad tree like this.
+
+48
+00:06:00,897 --> 00:06:15,632
+For the 4 queen problem, I'm just judging the search space and take out the illegal solution if there is no good solution.
+
+49
+00:06:16,121 --> 00:06:17,554
+We finally get two sets of solutions.
+
+50
+00:06:19,938 --> 00:06:22,141
+These two sollutions are marked red.
+
+51
+00:06:22,230 --> 00:06:25,366
+We can seen that these two solutions are symmetrical.
+
+52
+00:06:26,554 --> 00:06:28,521
+There are some algorithm that can solve it better.
+
+53
+00:06:32,024 --> 00:06:38,171
+In other words, there are some branches that are sure to be meaningless without thinking about.
+
+54
+00:06:38,244 --> 00:06:53,732
+For example, if I place one queen in the first line and in the first column , and place one queen in the second column and in the second line. I will not consider the branch any more since there are two queens on the same diagonal. 
+
+55
+00:06:54,825 --> 00:07:00,583
+The process of problem solving like this is the backtracking algorithm.
+
+59
+00:07:00,639 --> 00:07:13,128
+The backtracking algorithm can reduced the time of problem solving significantly because we can reduce the seach space significantly.
+
+60
+00:07:13,817 --> 00:07:26,341
+For the left part of the queen problem, the paths we marked as blue are the possible searchpath.
+
+61
+00:07:26,413 --> 00:07:30,730
+The right part is symmetrical to it, so we don't mark it again.
+
+62
+00:07:31,429 --> 00:07:34,905
+Let's look at the simple classification of algorith,.
+
+63
+00:07:35,425 --> 00:07:36,985
+For all the problems that we don't have very good algorithm, we can think about using  the method of exhaustion.
+
+64
+00:07:44,619 --> 00:07:54,951
+We first look at what kind of property does the problem have, what kind of property does the data have. And then find whether there are some solutions more effective to solve it.
+
+65
+00:07:55,039 --> 00:08:06,100
+For the example of the four queen problem we talked about before, we can use the method of exhaustion to list all the solutions of it.
+
+66
+00:08:06,164 --> 00:08:11,801
+Then I use backtracking algorithm to search effectively.
+
+67
+00:08:11,865 --> 00:08:21,586
+The theory of backtracking algorithm is the process of trying to enter or trying to change or trace back.
+
+68
+00:08:23,927 --> 00:08:35,400
+In dara structure and algorithm, the traversal of tree and graph and many other problems use the idea of backtracking algorithm.
+
+69
+00:08:36,081 --> 00:08:39,351
+There is another kind of method called recursive partition.
+
+70
+00:08:39,943 --> 00:08:48,600
+Recursive partition works well for some specific problem.
+
+71
+00:08:49,784 --> 00:09:03,224
+For example, if we want to search K in an orderly array that has been sorted, we can use bisection algorithm to solve it recursively.
+
+72
+00:09:04,102 --> 00:09:08,893
+Greedy method is a special kind of algorithm
+
+73
+00:09:08,973 --> 00:09:15,259
+Its data has the property of greedy.
+
+74
+00:09:15,331 --> 00:09:20,754
+We try to get the optimal solution at present.
+
+75
+00:09:20,833 --> 00:09:28,390
+We try to get the optimal solution everytime and get the best result at last.
+
+76
+00:09:29,703 --> 00:09:35,588
+In our textbook, there are some algorithm in the form of greedy method.
+
+77
+00:09:37,057 --> 00:09:53,712
+The dynamic programming method is to get the best solution for a small-size problem and assemble them for a larger scale problem and finally get the best solution for the whole problem.
+
+78
+00:09:53,792 --> 00:10:00,730
+The dynamic programming method requires the property of optimal substructure.
+
+79
+00:10:01,455 --> 00:10:03,247
+Its substructure is actually overlap substructure.
+
+80
+00:10:06,193 --> 00:10:09,281
+Let's look at an example of method of exhaustion.
+
+81
+00:10:10,020 --> 00:10:15,284
+In an unordered array, we want to search the element of K.
+
+82
+00:10:17,487 --> 00:10:25,452
+Since there is no hint, we can just search one by one which is a process of exhaustion.
+
+83
+00:10:26,188 --> 00:10:36,047
+For the algorithm, we leave the first position of the array out as the lookout and place the value of K in it.
+
+84
+00:10:36,623 --> 00:10:38,743
+We search forward from the last element of the array.
+
+85
+00:10:40,086 --> 00:10:45,604
+If we find the element in the process of searching forward, we'll return its corresponding subscript.
+
+86
+00:10:46,528 --> 00:10:51,590
+We'll stop searching if we search forward to the first position of the array.
+
+87
+00:10:51,662 --> 00:10:58,978
+Because the value of K is put there as the lookout.
+
+88
+00:10:59,051 --> 00:11:12,190
+The function of setting lookout is to avoid the judgement of whether the suscript i has go beyond the lower bound of the array.
+
+89
+00:11:13,344 --> 00:11:18,886
+Effieciency of the algorithm will be higher without the judgement.
+
+90
+00:11:19,731 --> 00:11:25,481
+Let's look at a more effective method for finding the value of K.
+
+91
+00:11:26,885 --> 00:11:38,068
+The method requires the array to be sorted. In that way, we can find the value of K more quickly.
+
+92
+00:11:39,654 --> 00:11:47,358
+In the middle of the array, we compare the value with K
+
+93
+00:11:47,433 --> 00:11:49,657
+If it is equal, the algorithm ends.
+
+94
+00:11:49,749 --> 00:11:55,788
+If the element in the middle of the array is smaller than K, we'll find in the right part of the array.
+
+95
+00:11:55,884 --> 00:12:00,693
+If the element in the middle of the array is bigger than K, we'll find in the left part of the array.
+
+96
+00:12:00,764 --> 00:12:09,310
+Every time we fail to search, the scale will decrease to half-size, then we continue to search.
+
+97
+00:12:09,397 --> 00:12:12,615
+So it is a very effective algorithm.
+
+98
+00:12:14,419 --> 00:12:17,219
+Let's look at the algorithm of finding K using binary search.
+
+99
+00:12:17,283 --> 00:12:25,613
+Firstly ,we introduce the array, its length and the value of K.
+
+100
+00:12:25,700 --> 00:12:34,446
+I set the lower bound and upper bound of the search interval as 1 and the length of the array.
+
+101
+00:12:36,871 --> 00:12:39,907
+We leave the position which is indexed zero in the array out. 
+
+102
+00:12:39,983 --> 00:12:50,305
+We get the index of the middle position mid, and compare the value in the position of mid with K.
+
+103
+00:12:50,395 --> 00:12:52,687
+If it is equal, we returns mid.
+
+104
+00:12:53,319 --> 00:13:06,365
+If k is smaller than the value in the position of mid with K, we'll search in the left part of the array and set the lower bound as the position of mid -1. 
+
+105
+00:13:10,493 --> 00:13:21,101
+If k is bigger than the value in the position of mid with K, we'll search in the right part of the array and set the upper bound as the position of mid +1. 
+
+106
+00:13:22,660 --> 00:13:37,082
+If no value is found to be equal to K until low < high which means the lower bound goes beyond the upper bound, the search process fails and returns 0.
+
+107
+00:13:37,691 --> 00:13:40,401
+It means the value K can not be found in the data area of 1 to length and the search fails.
+
+108
+00:13:47,155 --> 00:13:50,551
+Let's look at the graphical representation of the binary search.
+
+109
+00:13:50,615 --> 00:13:57,275
+We set the subscript low and high as the lower bound and upper bound.
+
+110
+00:13:58,330 --> 00:14:02,157
+mid is the middle position, and its index is 5.
+
+111
+00:14:02,245 --> 00:14:04,382
+The element we are searching for is 18.
+
+112
+00:14:04,453 --> 00:14:10,446
+18 is smaller than the 35 which is the value of the element indexed 5.
+
+113
+00:14:10,517 --> 00:14:20,087
+So we decrease the upperbound to mid - 1 and continue searching in the left part.
+
+114
+00:14:20,733 --> 00:14:26,648
+The median of the left part is 17 which is smaller than 18.
+
+115
+00:14:26,736 --> 00:14:30,820
+So we continue to search in the right part of the search interval.
+
+116
+00:14:31,368 --> 00:14:42,949
+The index of the middle position of the right part is 3, and its value is 18 , we find the data.
+
+117
+00:14:44,345 --> 00:14:54,186
+We can see the process is much quicker than the method of exhaustion which we search one by one.
+
+118
+00:14:56,018 --> 00:14:58,619
+Let's think for a while.
+
+119
+00:14:59,307 --> 00:15:07,620
+An algorithm requires you to move the elements of the array to the right place by k positions circularly.
+
+120
+00:15:08,905 --> 00:15:27,472
+For example, there is an array with 10 elements from zero to nine, I require to rotate by 3 positions, and the element of zero will move to 3 positions after the initial position of it.
+
+121
+00:15:27,544 --> 00:15:32,468
+It jusmps 3 positions, and the elements of 7 8 9 is folded over.
+
+122
+00:15:33,034 --> 00:15:37,055
+We get a new array.
+
+123
+00:15:37,933 --> 00:15:41,319
+The algorithm has constraints of time and space.
+
+124
+00:15:41,391 --> 00:15:50,423
+The so-called space constraint is that you can just use one auxiliary variable in the process of operating.
+
+124
+00:15:50,493 --> 00:15:56,553
+The size of the variable is constrained to the size of the array element.
+
+125
+00:15:58,842 --> 00:16:12,396
+The time constraint is that in the process of moving, the total number of moving and exchanging is only linearly correlated with n.
+
+126
+00:16:12,836 --> 00:16:18,661
+In other words, you cannot get an algorithm with the scale of the square of n.
+
+127
+00:16:19,309 --> 00:16:24,569
+Under such restrictions how will you to consider about the design of the algorithm?
+
+128
+00:16:25,791 --> 00:16:35,339
+This problem brings in the analysis of the efficiency of time and space which we'll talk about in the next section.
+
+129
+00:16:35,979 --> 00:16:36,771
+Thank you!
+
+1
+00:00:05,189 --> 00:00:06,085
+Hello,everyone.
+
+2
+00:00:06,165 --> 00:00:11,586
+We will continue with the first section of the Data Structure and Algorithm.
+
+3
+00:00:11,667 --> 00:00:15,374
+Today, we mainly introduce the measure of algorithm efficiency.
+
+4
+00:00:15,822 -->  00:00:24,725
+We must concern about the time and space performance after we design an algorithm especially the space performance.
+
+5
+00:00:25,265 --> 00:00:34,410
+For an algorithm like this ,if we divide it into several algorithm segment just as the four parts show/
+
+6
+00:00:35,156 --> 00:00:41,941
+It is obvious that the square of n is the most important part of it.
+
+7
+00:00:42,013 -->  00:00:49,289
+When n is large enough, other parts can be neglected.
+
+8
+00:00:49,368 --> 00:01:04,752
+So we mainly focus on the growth of the algorithm, especially when n grows to a certain scale, what level is the algorithm, linearly or n square or exponential.
+
+9
+00:01:05,322 --> 00:01:17,464
+The measurement of the algorithm makes it easier for us to estimate whether we can solve the problem in a time which we can put up with.
+
+9
+00:01:18,979 --> 00:01:25,331
+O notation is the most important analysis in the complexity analysis of algorithm.
+
+10
+00:01:27,611 --> 00:01:55,131
+Suppose the complexity function of the algorithm is f, if we can find a function g that when the scale of the problem is equal or larger than n0, there is a positive number c which makes f(n) equal to or smaller than cg(n), then f(n) is called in the set of O(n).
+
+11
+00:01:55,635 --> 00:02:00,641
+It also can be represented as f（n）=O（g（n））
+
+12
+00:02:01,234 --> 00:02:14,157
+O notation express the upper bound of growth of functions, which means the complexity of the algorithm will be no than the scale of g(n).
+
+13
+00:02:16,279 --> 00:02:23,179
+The upper bound may be more than one , it is best to find the most "tight" one.
+
+14
+00:02:23,771 --> 00:02:31,611
+There is another corresponding definition that the lower bound of the algorithm is O.
+
+15
+00:02:31,691 --> 00:02:40,021
+When the upper bound and the lower bound are the same, we represent is as Θ.
+
+16
+00:02:40,791 --> 00:02:50,241
+In many cases of data structure and algorithm, O notation and Θ notation are almost the same.
+
+17
+00:02:50,305 -->  00:02:54,759
+So many textbooks just talk about O notation.
+
+18
+00:02:54,841 --> 00:03:02,657
+For students non-computer major students, we just require you to master O notation.
+
+19
+00:03:02,741 --> 00:03:07,627
+You can understand Θ as O when you see it.
+
+20
+00:03:08,565 --> 00:03:11,724
+Let's look at the graphical representation of O notation.
+
+21
+00:03:12,244 -->  00:03:46,466
+The O notation means for the complexity function f(n), we need to find cg(n) that when n is larger than n0, the growth of cg(n) is larger than f(n). In other words, g(n) is larger than f(n), multiplied by a positive parameter c.
+
+22
+00:03:48,225 --> 00:03:58,377
+When we look at the graphical representation, we can see that f(n) may go beyond cg(n) in some situations when n is less than n0.
+
+23
+00:03:58,465 --> 00:04:00,331
+It doesn't matter. 
+
+24
+00:04:00,394 --> 00:04:03,981
+We don't care about special situations of small scale like this.
+
+25
+00:04:04,061 --> 00:04:09,399
+When n is large enough, g(n) is the upper bound of f(n).
+
+26
+00:04:09,471 --> 00:04:15,039
+And in fact, we don't care about the definite value of c.
+
+27
+00:04:15,096 --> 00:04:17,549
+It means in the measurement of algorithm
+
+28
+00:04:17,629 --> 00:04:33,147
+we consider about the largest part of f(n), the coefficient of this part and the lower order polynomial behind it can be get rid of.
+
+29
+00:04:34,991 --> 00:04:38,596
+How to measure O notation?
+
+30
+00:04:38,692 --> 00:04:44,364
+We just need to the see the basic operation of the algorithm.
+
+31
+00:04:44,921 --> 00:04:51,652
+Bool operation and arithmetical operation take O(1) time.
+
+32
+00:04:51,731 --> 00:05:07,496
+It's the same with some simple IO operation. Simple operation mainly reads elements from memory or passes parameter.
+
+33
+00:05:05,899 --> 00:05:19,245
+But it doesn't contain operation of file or keyboard. They are IO operations of  peripheral which take a lof of time and are uncontrollable.
+
+34
+00:05:21,480 --> 00:05:25,774
+O notation has two important operational rule.
+
+35
+00:05:26,877 --> 00:05:49,808
+The first one is the addition rule. If there are two code segment whose complexity is f1 and f2 individually. The most part we concerned about or the most time consuming part is the code segment with larger complexity.
+
+36
+00:05:51,896 --> 00:06:02,029
+The sequential structure, the decision  structure and the switch structure are accustomed to addition rule.
+
+37
+00:06:02,705 --> 00:06:05,333
+The other rule is the  multiplication rule.
+
+38
+00:06:05,405 --> 00:06:20,037
+For nested program segment, the algorithm cost of the inner loop and the outer loop must be multiplied together. 
+
+39
+00:06:20,613 --> 00:06:27,723
+The total time taken is the product of these two loop.
+
+40
+00:06:29,056 --> 00:06:37,278
+The multiplication rule can be applied for loop structure like for and while.
+
+41
+00:06:38,549 --> 00:06:53,398
+Let's see the example, and we can find it is  bicirculating, each loop is in the scale of n, and multiplied them together and get the scale of square of n.
+
+42
+00:06:53,473 --> 00:07:10,123
+And we can see the algorithm complexity we concerned about. The coefficients and the lower order item can be neglected.
+
+43
+00:07:13,005 --> 00:07:17,416
+In asymptotic algorithm analysis, there is Ω notation.
+
+44
+00:07:17,488 --> 00:07:21,141
+It is opposite to O notation.
+
+45
+00:07:21,880 --> 00:07:25,590
+We care the lower bound of the algorithm.
+
+46
+00:07:25,685 --> 00:07:47,667
+It means there is positive number c and no that when n is larger than n0, we can find f(n) which is larger than cg(n). In other words, f(n) is larger than g(n). 
+
+47
+00:07:49,410 --> 00:07:53,953
+We also represent it as f（n）=Ω（g（n））
+
+48
+00:07:54,016 --> 00:07:59,338
+The lower bound of Ω notation may be more than one.
+
+49
+00:07:59,403 --> 00:08:03,848
+We usually need to find the most "tight" one.
+
+50
+00:08:05,505 --> 00:08:39,129
+From the graphical representation of Ω notation, we can see that it is similiar to O notation. We need to find a n0 that when n is larger than n0, f(n) is larger than cg(n).
+
+51
+00:08:27,216 --> 00:08:30,191
+We neglect the c, and say the lower bound of f(n) is Ω(g（n）).
+
+52
+00:08:41,239 --> 00:08:51,654
+When the lower bound is the same with the upper bound, it is a specific bound ,we use the Θ notation.
+
+53
+00:08:51,710 -->  00:08:57,783
+So we can have two inequation to define f(n).
+
+54
+00:08:59,140 --> 00:09:07,020
+The lower bound is c1g（n） and the upper bound is c2g（n） while f(n) is in the middle.
+
+55
+00:09:07,084 --> 00:09:17,781
+And when n is larger than n0, f(n) is in the middle of c1c1g（n）and c2g（n).
+
+56
+00:09:20,946 --> 00:09:40,714
+After we get the  progressive growth rate of the algorithm, we can use it to compare with the growth curve of other functions and we can find that n is grown linearly,
+
+57
+00:09:40,792 --> 00:09:41,963
+In usual cases, many algorithms are related with its data scale n.
+
+58
+00:09:46,129 --> 00:09:51,793
+If you can find algorithm with complexity of logn, it is very effective.
+
+59
+00:09:51,857 --> 00:09:53,692
+But in some cases, we may need a constant algorithm.
+
+60
+00:09:57,123 --> 00:10:06,294
+For the example of engine, when the results of the indexs return, we'd like to have  response speed of O(1).
+
+61
+00:10:06,373 --> 00:10:09,519
+We may use some special index and search strategy.
+
+62
+00:10:10,159 --> 00:10:20,118
+The growth rate of nlogn is very close to n when n is very large.
+
+63
+00:10:20,188 --> 00:10:27,176
+Many sort algorithms are very effective because complexity of them is nlogn.
+
+64
+00:10:27,783 --> 00:10:33,977
+When n is large enough, algorithm with the complexity of the square of n works quite slow.
+
+65
+00:10:34,041 --> 00:10:42,115
+For example, we have some sort methods with low efficiency whose complexity is O(n*n).
+
+66
+00:10:42,801 --> 00:10:50,501
+These algorithms could'r work well when n is above 1 milion.
+
+67
+00:10:51,046 --> 00:10:56,073
+There are some algorithm whose complexity is exponential.
+
+68
+00:10:56,144 --> 00:11:02,465
+These algorithms are quite complicated and can only handle with cases that n is small.
+
+69
+00:11:04,504 --> 00:11:16,330
+If we meet with some bad data, in these cases, our algorithm can be quite slow.
+
+70
+00:11:16,403 --> 00:11:27,254
+On the other hand, if we meet with good data , and in the best case, we can get the solution quickly. And most cases we meet with data neither good or bad.
+
+71
+00:11:27,341 --> 00:11:32,113
+The cost we calculated for these data is the average cost of the algorithm.
+
+72
+00:11:32,193 --> 00:11:40,391
+In mant cases, we need to consider in the worst and best and the average case, what is the time cost.
+
+73
+00:11:40,926 --> 00:11:50,832
+For the best case, we can take advantage of the special input case and assemble some rather good algorithm.
+
+74
+00:11:50,912 --> 00:11:55,182
+This kind of case exists in our sort algorithm.
+
+75
+00:11:55,710 --> 00:12:06,144
+For the worst case, we need to consider in some extreme condition , whether we can solve problem space like this or not. 
+
+76
+00:12:06,656 --> 00:12:13,407
+For example. many software systems of us need to have pressure test to consider the worst case.
+
+77
+00:12:13,487 --> 00:12:21,635
+The average case is considered  to see the performance of an algorithm in statistical sense.
+
+78
+00:12:23,612 --> 00:12:29,495
+We introduced several algorithms before, let's look at the example of finding k in order.
+
+79
+00:12:29,565 --> 00:12:40,026
+In the best case, the first element if compares is the value k searching for, and it takes O(1) time.
+
+80
+00:12:40,106 --> 00:12:49,152
+In the worst case, it will find the element until the last one or fail to find it at last.
+
+81
+00:12:49,544 --> 00:12:56,159
+The time taken will be O(n).
+
+82
+00:12:56,239 --> 00:13:19,253
+If we look at the average case. we suppose these values are distributed with same possibility. It means the possibility of k that occurs in every position is 1/n. And the cost of the algorithm in the average case is O(n).
+
+83
+00:13:21,292 --> 00:13:46,221
+Let's look at the case with diverse possibility. I suppose the possibility of k occurs in position 1 is 1/2, and that in position 2 is 1/4, and that in other places is shown as the equation. And we can get a result that is still O(n).
+
+84
+00:13:48,281 --> 00:14:09,355
+The method of binary search of K is a divide and conquer method. And the best case is that the first middle value is just the element we are searching for and it takes O(1) time.
+
+85
+00:14:09,795 --> 00:14:20,785
+What about the worst and the average case? Let's look at the example of binary search.
+
+86
+00:14:21,737 --> 00:14:30,613
+In fact, we can use a decision tree to observe the performance, the largest search length and the search length when search fails.
+
+87
+00:14:32,569 --> 00:14:46,306
+In the worst case ,the level we need to decline in the search tree is in the scale of logn.
+
+88
+00:14:47,285 --> 00:14:54,544
+So our largest search length and the search length when it fails are all in the scale of logn.
+
+89
+00:14:54,622 --> 00:15:00,383
+The average searching cost is O(logn).
+
+90
+00:15:00,447 --> 00:15:08,708
+Take care that our representation doesn't give the base of logn.
+
+91
+00:15:09,129 --> 00:15:29,247
+In the analysis of complexity of algorithm ,we mainly takes 2 as the base. Besides, because of the base changing formula, it is the same to use 10 or others as the base in the sense of O notation.
+
+92
+00:15:29,326 --> 00:15:32,096
+Because we don't care about the coefficients.
+
+93
+00:15:36,166 --> 00:15:44,195
+The space cost and time cost analysis method of the algorithm are similar to each other.
+
+94
+00:15:44,267 --> 00:15:54,149
+What we talked before are mainly about O notation,Θ notation from the view of the time.
+
+95
+00:15:54,496 --> 00:16:02,103
+We can also use this series of notation to observe our space cost.
+
+96
+00:16:03,985 --> 00:16:18,383
+Space cost is mainly related with the auxiliary space of the algorithm. In other words, how much temporary variable space do I need to complete the operation of the algorithm.
+
+97
+00:16:19,271 --> 00:16:27,978
+The tradeoff of time and space is a very inportant question in data structure.
+
+98
+00:16:28,346 --> 00:16:46,391
+Because when we are trying to solve the problem, we need some space to place related data and also need some time to execute the code of the algorithm.
+
+99
+00:16:47,870 --> 00:16:52,479
+So constraints of time and space are required in many applications. 
+
+100
+00:16:55,926 -->00:17:13,589
+Besides, the constraints and requirements of some software engineering must be also considered. 
+
+101
+00:17:15,717 --> 00:17:27,596
+In usual cases, if we add space of the algorithm, we may get better perfomance if I allocate larger arrays.
+
+102
+00:17:27,677 --> 00:17:46,415
+On the other hand, if we have to save the space, we may need to consider more about the design of the algorithm. It means we may increase the time cost or the burden of writing the algorithm.
+
+103
+00:17:46,919 --> 00:17:47,975
+The tradeoff of time and space are questions we must consider carefully.
+
+104
+00:17:53,622 --> 00:18:11,488
+When we choose about the data structure and the algorithm, we must consider what is the question of us. It means we should think about what kind of data structure to express the data space of the question around the aim of the problem solving.
+
+105
+00:18:14,840 --> 00:18:21,793
+Then we consider to use what kind of algorithm to solve it.
+
+106
+00:18:22,169 --> 00:18:27,086
+In many cases, the design of data structure is prior to the design of algorithm.
+
+107
+00:18:27,485 --> 00:18:36,748
+Obviously, there are some problems that we can easily map it to a classical algorithm.
+
+108
+00:18:36,827 --> 00:18:42,421
+Then we consider to use some corresponding storage method to implement it.
+
+109
+00:18:42,509 --> 00:18:56,749
+We also need to consider the extendibility of data structure because the algorithm is very likely to be related with the problem scale.
+
+110
+00:18:57,624 -->  00:19:03,329
+When n is large enough,  whether is our algorithm used to it?
+
+111
+00:19:03,793 --> 00:19:12,386
+For example the time cost of a linear algorithm is O(n), and it works well in usual cases.
+
+112
+00:19:12,475 --> 00:19:30,959
+But in the environment of search engine, we are faced with web pages with scale of several hundred million. If the time cost of the algorithm is linear, it may not meet our search demand. Some special index and search handling may be needed.
+
+113
+00:19:33,234 --> 00:19:35,039
+Finally leave you a few thinking questions.
+
+114
+00:19:35,656 --> 00:19:44,773
+First, we choose the data structure and algorithm mainly for problem solving.
+
+115
+00:19:45,920 --> 00:19:48,314
+what is the aim of problem solving.
+
+116
+00:19:48,389 --> 00:19:52,025
+We can see several examples.
+
+117
+00:19:52,096 --> 00:20:03,523
+In the process of choosing data structure and algorithm, how do we consider and what do we consider first, how is the process going on?
+
+118
+00:20:04,831 --> 00:20:16,296
+Besides we look back on the three factors of data structure, that is its logical structure, storage structure and operation. 
+
+119
+00:20:16,929 --> 00:20:25,883
+Once one factor changes, we can think it as a different data structure.
+
+120
+00:20:25,971 --> 00:20:26,836
+Thank you!
+
